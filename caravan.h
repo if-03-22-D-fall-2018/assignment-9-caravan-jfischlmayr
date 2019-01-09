@@ -15,6 +15,19 @@
 
 #include "pack_animal.h"
 
+struct NodeImplementation
+{
+    PackAnimal animal;
+    struct NodeImplementation* next;
+};
+
+typedef struct NodeImplementation* Node;
+
+struct CaravanImplementation{
+    int length;
+    Node head;
+};
+
 /**
 * Initialisiert eine Karawane. D. h., dass es alle in der Karawane befindlichen Tiere aus der
 * Karawane entfernt und die Karawane als leer kennzeichnet.
@@ -64,5 +77,7 @@ void unload(Caravan caravan);
 * maximal ist.
 */
 void optimize_load(Caravan caravan);
+
+bool animal_unique(Caravan caravan, PackAnimal animal);
 
 #endif
