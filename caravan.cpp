@@ -139,5 +139,13 @@ int get_caravan_speed(Caravan caravan)
 
 void optimize_load(Caravan caravan)
 {
-
+  int fastestHorse = 0;
+  int slowestHorse = 100;
+  int fastestCamel = 0;
+  int slowestCamel = 100;
+  int load = get_caravan_load(caravan);
+  Node current = caravan->head;
+  while (current->next != 0) {
+    
+  }
 }
