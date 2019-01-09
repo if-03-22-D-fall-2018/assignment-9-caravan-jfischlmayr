@@ -123,29 +123,21 @@ void unload(Caravan caravan)
 
 int get_caravan_speed(Caravan caravan)
 {
-  return 0;
+  int lowest_speed = 100;
+  int actual_speed;
+  Node current = caravan->head;
+  while(current != 0)
+  {
+    actual_speed = get_actual_speed(current->animal);
+    if(actual_speed < lowest_speed){
+      lowest_speed = actual_speed;
+    }
+    current = current->next;
+  }
+  return lowest_speed;
 }
 
 void optimize_load(Caravan caravan)
 {
 
-}
-
-bool animal_unique(Caravan caravan, PackAnimal animal)
-{
-  if (caravan->head == 0) {
-    return false;
-  }
-  bool isUnique = true;
-  Node current = caravan->head;
-
-  while (current->next != 0 && isUnique) {
-    if (current->animal == animal) {
-      isUnique = false;
-    }
-    else {
-      current = current->next;
-    }
-  }
-  return isUnique;
 }
